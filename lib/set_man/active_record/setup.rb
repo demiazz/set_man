@@ -12,7 +12,7 @@ module SetMan::ActiveRecord
 
       def settings(&block)
         self.send :include, SetMan::ActiveRecord::Extension
-        self.class_eval &block if block
+        self.class_eval block if block
       end
 
     end

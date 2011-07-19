@@ -23,26 +23,6 @@ For enable SetMan for model, you can add call `settings`.
 
     end
 
-You can set default options:
-
-    class Options < ActiveRecord::Base
-
-      self.create do |option|
-        option.name = :per_page
-        option.value = 20
-        option.type = :integer
-      end
-
-      settings do 
-        default :site_name, "Site Name"
-        default :per_page, 30
-      end
-
-    end
-
-    Options.where(:name => :site_name).first.value #=> "Site Name"
-    Options.where(:name => :per_page).first.value #=> 20
-
 For getting option, you can use `get_option`:
 
     Options.get_option :site_name #=> "Site Name"

@@ -147,15 +147,6 @@ module SetMan::ActiveRecord
         end
       end
 
-      def default(name, value)
-        unless self.exists?(name)
-          self.create do |option|
-            option.name = name
-            option.value = value
-          end
-        end
-      end
-
     end
 
     module InstanceMethods

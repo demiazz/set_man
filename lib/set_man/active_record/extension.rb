@@ -163,7 +163,9 @@ module SetMan::ActiveRecord
       protected 
         
         def to_sql
-          self[:value], self[:klass] = SetMan::SqlConverter.to_sql(self[:value])
+          sql = SetMan::SqlConverter.to_sql(self[:value])
+          self[:value] = sql[0]
+          self[:klass] = sql[1]
         end
 
         def from_sql

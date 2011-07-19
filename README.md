@@ -15,7 +15,7 @@ after this execute in console:
 
 ##Overview
 
-For enable SetMan for model, you can add call 'settings'.
+For enable SetMan for model, you can add call `settings`.
 
     class Options < ActiveRecord::Base
 
@@ -59,7 +59,7 @@ or shorten variant:
 
     Options.set :site_name, "New Name" #=> "New Name"
 
-Methods `set_option` and `set` can given :to parameter:
+Methods `set_option` and `set` can given `:to` parameter:
 
     Options.set_option :site_name, :to => "New Name" #=> "New Name"
     Options.set :site_name, :to => "New Name" #=> "New Name"

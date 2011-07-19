@@ -3,7 +3,7 @@ class SetManCreate<%= table_name.camelize %> < ActiveRecord::Migration
     create_table :<%= table_name %> do |t|
       t.string :name
       t.text :value
-      t.string :type
+      t.string :klass
     end
 
     add_index :<%= table_name %>, :name, :unique => true

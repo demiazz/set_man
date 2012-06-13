@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files                 = Dir['LICENSE', 'README.md', 'lib/*/**']
   s.require_path          = 'lib'
 
-  s.add_dependency        = 'activesupport', '~> 3.2.5'
+  s.add_dependency 'activesupport', '~> 3.2.5'
 
   s.add_development_dependency 'rspec', '~> 2.10'
   s.add_development_dependency 'yard'

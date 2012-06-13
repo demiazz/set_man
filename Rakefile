@@ -1,24 +1,23 @@
-require 'rake'
-require 'rake/testtask'
-require 'rdoc/task'
-require 'bundler/gem_tasks'
+#!/usr/bin/env rake
 
-desc 'Default: run unit tests.'
-task :default => :test
+require 'rspec/core/rake_task'
+require 'yard'
 
-desc 'Test the set_man plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+desc 'Default: run specs.'
+task default: :spec
+
+desc 'Run specs'
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = './spec/**/*_spec.rb'
 end
 
-desc 'Generate documentation for the set_man plugin.'
-RDoc::Task.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'SetMan'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+desc 'Generate code coverage'
+RSpec::Core::RakeTask.new(:coverage) do |t|
+  t.pattern   = './spec/**/*_spec.rb'
+  t.rcov      = true
+  t.rcov_opts = ['--exclude', 'spec']
+end
+
+YARD::Rake::YardocTask.new do |t|
+  t.files = ['lib/**/*.rb']
 end

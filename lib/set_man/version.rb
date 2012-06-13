@@ -1,12 +1,5 @@
+# coding: utf-8
+
 module SetMan
-  module Version
-
-    MAJOR = 1
-    MINOR = 0
-    PATCH = 2
-
-    STRING = [MAJOR,MINOR,PATCH].compact.join('.')
-
-  end
+  VERSION = '2.0.0-dev'
 end
-

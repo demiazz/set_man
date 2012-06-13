@@ -1,14 +1,9 @@
-$:.push File.dirname(__FILE__)
+# coding: utf-8
 
-require 'active_support/core_ext/module/attribute_accessors'
+require 'active_support'
 
-module SetMan 
-
+module SetMan
+  extend ActiveSupport::Autoload
 end
 
-require 'set_man/plugin'
-require 'set_man/active_record/extension'
-require 'set_man/active_record/setup'
-require 'set_man/sql_converter'
-
-SetMan::Plugin.setup!
+require 'set_man/version'
